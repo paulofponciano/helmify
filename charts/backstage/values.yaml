@@ -1,0 +1,19 @@
+backstage:
+  backstage:
+    env:
+      postgresHost: postgres.backstage.svc.cluster.local
+      postgresPort: "5432"
+    image:
+      repository: paulofponciano/backstage-app
+      tag: v1.30.4
+    imagePullPolicy: Always
+  ports:
+  - name: http
+    port: 80
+    targetPort: http
+  replicas: 1
+  type: ClusterIP
+kubernetesClusterDomain: cluster.local
+serviceAccount:
+  serviceAccount:
+    annotations: {}
